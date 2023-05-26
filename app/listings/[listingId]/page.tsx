@@ -5,6 +5,7 @@ import { categories } from "@/app/components/navbar/Categories"
 import { useMemo } from "react"
 import getCurrentUser from "@/app/actions/getCurrentUser"
 import getReservations from "@/app/actions/getReservations"
+import { Listing, User } from "@prisma/client"
 
 
 interface IParams {
@@ -25,7 +26,7 @@ const ListingPage = async ({ params }: { params: IParams }) => {
     return (
         <div>
             <ListingClient
-                listing={listing}
+                listing={listing as (Listing & { user: User })}
                 key={listing.id}
                 currentUser={currentUser}
                 reservations={reservations}
