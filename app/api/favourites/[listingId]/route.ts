@@ -11,6 +11,7 @@ export async function POST(
     request: Request,
     { params }: { params: IParams }
 ) {
+
     const currentUser = await getCurrentUser()
     if (!currentUser) {
 
